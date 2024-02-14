@@ -1,0 +1,88 @@
+[
+    {
+      "name": "Kjerkeberget",
+      "county": "Oslo",
+      "height": 630,
+      "pf": 37,
+      "x": 60.13521,
+      "y": 10.61908
+    },
+    { "name": "Fjellsjøkampen", "county": "Akershus", "height": 812, "pf": 108 },
+    { "name": "Slavasshøgda", "county": "Østfold", "height": 336, "pf": 123 },
+    {
+      "name": "Sæbyggjenuten",
+      "county": "Aust-Agder",
+      "height": 1507,
+      "pf": 328
+    },
+    { "name": "Vestfjellet", "county": "Vestfold", "height": 634, "pf": 473 },
+    { "name": "Urdalsknuten", "county": "Vest-Agder", "height": 1433, "pf": 504 },
+    {
+      "name": "Vassdalseggi",
+      "county": "Rogaland",
+      "height": 1658,
+      "pf": "506",
+      "x": "59.76332",
+      "y": "7.1104"
+    },
+    {
+      "name": "Hardangerjøkulen",
+      "county": "Hordaland",
+      "height": 1861,
+      "pf": 549,
+      "x": "60.53333",
+      "y": "7.41667"
+    },
+    {
+      "name": "Pyttegga",
+      "county": "Møre og Romsdal",
+      "height": 1999,
+      "pf": 566
+    },
+    {
+      "name": "Storskrymten",
+      "county": "Sør-Trøndelag",
+      "height": 1985,
+      "pf": 606,
+      "x": "62.3725",
+      "y": "9.061667"
+    },
+    {
+      "name": "Jetnamsklumpen",
+      "county": "Nord-Trøndelag",
+      "height": 1512,
+      "pf": 675
+    },
+    {
+      "name": "Folarskardnuten",
+      "county": "Buskerud",
+      "height": 1933,
+      "pf": 955,
+      "x": "60.609906",
+      "y": "7.722694"
+    },
+    { "name": "Gaustatoppen", "county": "Telemark", "height": 1883, "pf": 958 },
+    {
+      "name": "Store Skagastølstinden",
+      "county": "Telemark",
+      "height": 1883,
+      "pf": 958
+    },
+    {
+      "name": "Store Skagastølstinden",
+      "county": "Sogn og Fjordane",
+      "height": 2405,
+      "pf": 1013
+    },
+    {
+      "name": "Øksfjordjøkelen",
+      "county": "Finnmark",
+      "height": 1191,
+      "pf": 1119
+    },
+    { "name": "Rondslottet", "county": "Hedmark", "height": 2178, "pf": 1231 },
+    { "name": "Oksskolten", "county": "Nordland", "height": 1915, "pf": 1382 },
+    { "name": "Jiehkkevárri", "county": "Troms", "height": 1834, "pf": 1737 },
+    { "name": "Galdhøpiggens", "county": "Oppland", "height": 2469, "pf": 2372 }
+  ]
+  
