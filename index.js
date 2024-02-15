@@ -1,78 +1,47 @@
-"use strict";
 
-let outputDiv = document.getElementById("outputDiv");
-let mapDiv = document.getElementById("mapDiv");
-let mountainsPath = "https://api.myjson.com/bins/i3vk2";
-let headers = ["name", "county", "height", "pf", "x", "y"];
-
-(async () => {
-  let rawMountains = await fetchMountains(mountainsPath);
-  console.log(rawMountains);
-  let sortedMountains = sortMountains(rawMountains);
-  displayMountains(sortedMountains);
-})();
-
-// leave possibility of manipulating json string before returning
-async function fetchMountains(url) {
-  return await fetchJson(url);
-}
-
-function sortMountains(array) {
-  return array.sort((a, b) => {
-    return a.height < b.height ? 1 : -1;
-  });
-}
-
-async function fetchJson(url) {
-  try {
-    let response = await fetch(url);
-    return await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-function displayMountains(mountainArr) {
-  console.log(mountainArr);
-  let table = document.createElement("table");
-  // table header
-  let header = table.createTHead();
-  let headerRow = header.insertRow();
-  headerRow.id = "tableHeader";
-  for (let head of headers) {
-    let headerCell = headerRow.insertCell();
-    headerCell.innerText = head;
-  }
-  // table body
-  let body = table.createTBody();
-  for (let mountain of mountainArr) {
-    let row = body.insertRow(-1);
-    for (let key in mountain) {
-      let cell = row.insertCell(-1);
-      cell.innerText = mountain[key];
+//hente json-dataen asynkront, idk æ prøvde
+async function fetchMountains() {
+    try {
+        const response = await fetch("mountains.json");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching JSON: ', error);
+        return [];
     }
   }
-
-  outputDiv.appendChild(table);
-
-  // goal: embed long url to map service with all coordinates
-  let coordinates = "https://maps.google.com?q=";
-  for (let mountain of mountainArr) {
-    if (mountain.x && mountain.y) {
-      coordinates += mountain.x + "," + mountain.y + ",";
-    }
-  }
-  coordinates += "&output=embed";
-  console.log(coordinates);
-  // hack: one iframe per mountain
-  for (let mountain of mountainArr) {
-    coordinates += mountain.x + "," + mountain.y;
-    let iframe = document.createElement("iframe");
-    iframe.width = "425";
-    iframe.height = "350";
-    iframe.frameborder = "0";
-    iframe.scrolling = "no";
-    iframe.src = `https://maps.google.com?q=${mountain.x},${mountain.y}&output=embed`;
-    // mapDiv.appendChild(iframe);
-  }
+//vise fjellene i en tabell 
+async function displayMountains() {
+    const data1 = await fetchMountains();
+    const table = document.getElementById('mountainTable');
+    data1.forEach(mountain => {
+        const row = table.insertRow();
+        const fylkeCell = row.insertCell(0);
+        const fjellCell = row.insertCell(1);
+        const hoydeCell = row.insertCell(2);
+        fylkeCell.textContent = mountain.Fylke;
+        fjellCell.textContent = mountain.hoyesteFjell;
+        hoydeCell.textContent = mountain.hoydeMeter;
+    });
 }
+
+//sortere fjellene etter høyde
+async function sortMountains(){
+    const table = document.getElementById('mountainTable');
+    const rows = Array.from(table.querySelectorAll('tbody > tr')).slice(1);
+    rows.sort(async (a,b) => {
+        const heightA = parseInt(a.cells[2].textContent);
+        const heightB = parseInt(b.cells[2].textContent);
+        return heightB - heightA;
+    });
+    rows.forEach(row => table.appendChild(row));
+}
+
+//hovedfunksjon
+async function main() {
+    await fetchMountains();
+    await displayMountains(); //viser fjellene i tabellen
+    await sortMountains(); //sorterer fjellene 
+}
+
+main();
