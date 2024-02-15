@@ -1,0 +1,15 @@
+{
+  "topper": [
+      {"navn": "Folarskardnuten","fylke": "Viken", "hoyde": 1933},
+      {"navn": "Galdhøpiggen","fylke": "Innlandet", "hoyde": 2469},
+      {"navn": "Gaustatoppen","fylke": "Vestfold og Telemark", "hoyde": 1883},
+      {"navn": "Jiehkkevárri","fylke": "Troms og Finnmark", "hoyde": 1834},
+      {"navn": "Kjerkeberget","fylke": "Oslo", "hoyde": 630},
+      {"navn": "Oksskolten","fylke": "Norland", "hoyde": 1915},
+      {"navn": "Pyttegga","fylke": "Møre og Romsdal", "hoyde": 1999},
+      {"navn": "Store Skagastølstinden","fylke": "Vestland", "hoyde": 2405},
+      {"navn": "Storskrymten","fylke": "Trøndelag", "hoyde": 1985},
+      {"navn": "Sæbyggjenuten","fylke": "Agder", "hoyde": 1507},
+      {"navn": "Vassdalseggi","fylke": "Rogaland", "hoyde": 1658}
+  ]
+}

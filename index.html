@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fylkestoppene</title>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body>
+<body id="body">
+    <table id="topper"></table>
+    <script type="module">
+        import fjelltopper from './fjelltopper.json' assert { type: 'json' };
+        let topTable = document.getElementById("topper");
+        let body = document.getElementById("body");
 
-<h2>Fylkestoppene</h2>
+        topTable.innerHTML += `<tr>`;
+            topTable.innerHTML += `<th>Navn</th><th>Fylke</th><th>Høyde (m)</th>`;
+        topTable.innerHTML += `</tr>`;
 
-
-<table id="mountainTable">
-  <tr>
-    <th>Fylke</th>
-    <th>Høyeste fjell</th>
-    <th>Høyde (m)</th>
-  </tr>
-</table>
-
-<script src="index.js"></script>
+        function compare(a,b){
+            if(a.hoyde > b.hoyde){
+                return -1;
+            } if (a.hoyde < b.hoyde){
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        fjelltopper.topper.sort(compare);
+        
+        for(let i = 0; i< fjelltopper.topper.length; ++i){
+            topTable.innerHTML += `<tr>`;
+                topTable.innerHTML += `<td>${fjelltopper.topper[i].navn}</td>
+                <td>${fjelltopper.topper[i].fylke}</td>
+                <td>${fjelltopper.topper[i].hoyde}</td>
+                `;
+            topTable.innerHTML += `</tr>`;
+        }
+    </script>
 </body>
 </html>
